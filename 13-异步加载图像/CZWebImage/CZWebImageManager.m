@@ -8,7 +8,7 @@
 
 #import "CZWebImageManager.h"
 #import "CZAdditions.h"
-
+#import "CZWebImageDownloadOperation.h"
 
 @interface CZWebImageManager()
 
@@ -58,7 +58,8 @@
     }
     
     // 2. 沙盒缓存
-    cacheImage = [UIImage imageWithContentsOfFile:[self cachePathWithURLString:urlString]];
+    NSString *cachePath = [self cachePathWithURLString:urlString];
+    cacheImage = [UIImage imageWithContentsOfFile:cachePath];
     if (cacheImage != nil) {
         // 设置内存缓存
         [_imageCache setObject:cacheImage forKey:urlString];
@@ -71,6 +72,15 @@
     if (_operationCache[urlString] != nil) {
         return;
     }
+    
+    // 4. 创建下载单张图像的操作
+    CZWebImageDownloadOperation *op = [CZWebImageDownloadOperation downloadOperationWithURLString:urlString cachePath:cachePath];
+    
+    // 5. 将操作添加到下载队列中
+    [_downloadQueue addOperation:op];
+    
+    // 6. 将操作添加到操作缓冲池中
+    [_operationCache setObject:op forKey:urlString];
     
 }
 // 返回沙盒缓存文件全路劲

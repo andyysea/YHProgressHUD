@@ -12,4 +12,9 @@
  */
 @interface CZWebImageDownloadOperation : NSOperation
 
+/**
+ *  ‘创建’ 一个下载操作，下载 urlString 指定的图像，下载成功后写入 cachePath 目录
+ */
++ (instancetype)downloadOperationWithURLString:(NSString *)urlString cachePath:(NSString *)cachePath;
+
 @end
