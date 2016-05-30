@@ -76,6 +76,14 @@
     // 4. 创建下载单张图像的操作
     CZWebImageDownloadOperation *op = [CZWebImageDownloadOperation downloadOperationWithURLString:urlString cachePath:cachePath];
     
+    __weak CZWebImageDownloadOperation *weakOpertaion = op;
+    [op setCompletionBlock:^{
+       
+        
+    }];
+    
+    
+    
     // 5. 将操作添加到下载队列中
     [_downloadQueue addOperation:op];
     
