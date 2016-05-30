@@ -55,8 +55,6 @@ static NSString *cellId = @"cellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"测试");
-    
     // 实例化队列
     _downloadQueue = [[NSOperationQueue alloc] init];
     // 实例化图像缓冲池
