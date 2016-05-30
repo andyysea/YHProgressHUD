@@ -24,6 +24,9 @@ static NSString *cellId = @"cellId";
 @property (nonatomic, strong) NSOperationQueue *downloadQueue;
 // 图像缓冲池
 @property (nonatomic, strong) NSMutableDictionary *imageCache;
+// 下载操作缓冲池
+@property (nonatomic, strong) NSMutableDictionary *operationCache;
+
 
 @end
 
@@ -53,6 +56,8 @@ static NSString *cellId = @"cellId";
     _downloadQueue = [[NSOperationQueue alloc] init];
     // 实例化图像缓冲池
     _imageCache = [NSMutableDictionary dictionary];
+    // 实例化操作缓存池
+    _operationCache = [NSMutableDictionary dictionary];
     
     // 异步执行加载数据，方法执行完成之后，不会立即得到结果
     [self loadData];
@@ -164,7 +169,7 @@ static NSString *cellId = @"cellId";
         return cell;
     }
     
-    
+    //问题 图像没有下载完成的时候不停的滚动表格，会将同一个操作重复添加到队列中，导致重复下载，操作的线程数量也增加
     
     // 为了设置cell 复用 cell 的图像更新慢的问题， 使用占位符
     UIImage *image = [UIImage imageNamed:@"user_default"];
@@ -172,6 +177,13 @@ static NSString *cellId = @"cellId";
     
     // sdwebimage 异步设置图像
     NSURL *url = [NSURL URLWithString:model.icon];
+    
+    
+    // 在创建操作之前，进行判断操作是否存在
+    if (_operationCache[model.icon] != nil) {
+        NSLog(@"正在玩命下载中。。。%@",model.name);
+        return cell;
+    }
     
     // 根据URL 异步加载图像
     NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
@@ -185,17 +197,28 @@ static NSString *cellId = @"cellId";
         // 这里加载完成图像之后，使用模型属性记录，这样就可以保存在数组，下次首先从数组中判断是否有图像
 //        model.image = image;
         
-        // 这里加载完毕图像之后，将图像保存到图像缓冲池中
-        [_imageCache setObject:image forKey:model.icon];
+        if (image != nil) {
+            
+            // 这里加载完毕图像之后，将图像保存到图像缓冲池中
+            [_imageCache setObject:image forKey:model.icon];
+        }
+        
+        
+        // 下载完成之后，将 url 对应的操作从 从操作缓存池中删除
+        [_operationCache removeObjectForKey:model.icon];
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-           
+            NSLog(@"下载的操作数 %zd ",self.downloadQueue.operationCount);
+            
             cell.iconView.image = image;
         }];
     }];
     
     // 将操作添加到队列中
     [_downloadQueue addOperation:op];
+    // 记录操作到操作缓冲池中
+    [_operationCache setObject:op forKey:model.icon];
+    
     
     return cell;
 }
@@ -215,6 +238,9 @@ static NSString *cellId = @"cellId";
     
     //b) 释放图像缓冲池
     [_imageCache removeAllObjects];
+    
+    //c) 将操作缓冲池清空
+    [_operationCache removeAllObjects];
 }
 
 @end
