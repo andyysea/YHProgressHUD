@@ -78,7 +78,25 @@
     
     __weak CZWebImageDownloadOperation *weakOpertaion = op;
     [op setCompletionBlock:^{
-       
+        NSLog(@"下载完成的操作 %@",weakOpertaion.downloadImage);
+        
+        //1. 通过属性 获取下载的图像
+        UIImage *image = weakOpertaion.downloadImage;
+        
+        //2. 将图像添加到图像缓冲池中
+        if (image != nil) {
+            
+            [self.imageCache setObject:image forKey:urlString];
+        }
+        
+        //3. 将操作从操作缓存中 删除操作
+        [_operationCache removeObjectForKey:urlString];
+        
+        //4. 主线程更新 UI (完成回调)
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+           
+            completion(image);
+        }];
         
     }];
     

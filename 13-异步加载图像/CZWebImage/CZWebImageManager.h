@@ -16,5 +16,5 @@
 + (instancetype)sharedManger;
 
 // 使用 urlString 下载图像， 通过 block 回调下载的图像
-- (void)downloadImageWithURLString:(NSString *)urlString completion:(void(^)(UIImage *image))completion;
+- (void)downloadImageWithURLString:(NSString *)urlString completion:(void(^)(UIImage *))completion;
 @end

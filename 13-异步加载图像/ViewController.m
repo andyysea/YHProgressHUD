@@ -152,92 +152,15 @@ static NSString *cellId = @"cellId";
     cell.nameLabel.text = model.name;
     cell.downloadLabel.text = model.download;
     
-    // 判断模型数据里面有没有图像，如果有，就设置图像，没有就走下面的下载图像的方法，
-    // ==> 下载得到的图像要在合适的位子再保存在数组中，就是使用数组属性记录
-//    if (model.image != nil) {
-//        
-//        NSLog(@"返回模型缓存");
-//        
-//        cell.iconView.image = model.image;
-//        
-//        return cell;  // 如果数组中有数据，那么就可以直接使用，并且返回
-//    }
-    
-    //1》 重图像缓冲池中取出图像
-    UIImage *cacheImage = _imageCache[model.icon];
-    //2》 判断取出的图像是否为空
-    if (cacheImage != nil) {
-        NSLog(@"返回图像缓冲池中的图像");
-        cell.iconView.image = cacheImage;
-        return cell;
-    }
-    
-    // 3》取出沙盒缓存的图像
-    cacheImage = [UIImage imageWithContentsOfFile:[self cachePathWithURLString:model.icon]];
-    
-    if (cacheImage != nil) {
-        NSLog(@"换回沙盒缓存");
-        // 设置图像
-        cell.iconView.image = cacheImage;
-        // 设置内存缓存
-        [_imageCache setObject:cacheImage forKey:model.icon];
-        
-        return cell;
-    }
-    
-    
-    //问题 图像没有下载完成的时候不停的滚动表格，会将同一个操作重复添加到队列中，导致重复下载，操作的线程数量也增加
-    
     // 为了设置cell 复用 cell 的图像更新慢的问题， 使用占位符
     UIImage *image = [UIImage imageNamed:@"user_default"];
     cell.iconView.image = image;
     
-    // sdwebimage 异步设置图像
-    NSURL *url = [NSURL URLWithString:model.icon];
-
     
-    // 在创建操作之前，进行判断操作是否存在
-    if (_operationCache[model.icon] != nil) {
-        NSLog(@"正在玩命下载中。。。%@",model.name);
-        return cell;
-    }
-    
-    // 根据URL 异步加载图像
-    NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
+    [[CZWebImageManager sharedManger] downloadImageWithURLString:model.icon completion:^(UIImage *image) {
        
-       // 模拟延时  会发现cell 复用的时候 图像更新变化，解决办法，使用占位符
-        [NSThread sleepForTimeInterval:2.0];
-        
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *image = [UIImage imageWithData:data];
-        
-        // 这里加载完成图像之后，使用模型属性记录，这样就可以保存在数组，下次首先从数组中判断是否有图像
-//        model.image = image;
-        
-        if (image != nil) {
-            
-            // 这里加载完毕图像之后，将图像保存到图像缓冲池中
-            [_imageCache setObject:image forKey:model.icon];
-            
-            // 将图像数据保存到沙盒
-            [data writeToFile:[self cachePathWithURLString:model.icon] atomically:YES];
-        }
-        
-        
-        // 下载完成之后，将 url 对应的操作从 从操作缓存池中删除
-        [_operationCache removeObjectForKey:model.icon];
-        
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            NSLog(@"下载的操作数 %zd ",self.downloadQueue.operationCount);
-            
-            cell.iconView.image = image;
-        }];
+        cell.iconView.image = image;
     }];
-    
-    // 将操作添加到队列中
-    [_downloadQueue addOperation:op];
-    // 记录操作到操作缓冲池中
-    [_operationCache setObject:op forKey:model.icon];
     
     
     return cell;
