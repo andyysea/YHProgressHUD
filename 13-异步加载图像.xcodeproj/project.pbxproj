@@ -52,6 +52,8 @@
 		EAA7C9831CFA07C2006D8B5D /* CZAppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA7C9811CFA07C2006D8B5D /* CZAppCell.m */; };
 		EAA7C9841CFA07C2006D8B5D /* CZAppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAA7C9821CFA07C2006D8B5D /* CZAppCell.xib */; };
 		EAF4B31A1CFBF3CD002CABE5 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF4B3191CFBF3CD002CABE5 /* NSString+Hash.m */; };
+		EAF4B3281CFC92DB002CABE5 /* CZWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF4B3271CFC92DB002CABE5 /* CZWebImageManager.m */; };
+		EAF4B32B1CFC9351002CABE5 /* CZWebImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF4B32A1CFC9351002CABE5 /* CZWebImageDownloadOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +147,10 @@
 		EAA7C9821CFA07C2006D8B5D /* CZAppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CZAppCell.xib; sourceTree = "<group>"; };
 		EAF4B3181CFBF3CD002CABE5 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
 		EAF4B3191CFBF3CD002CABE5 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		EAF4B3261CFC92DB002CABE5 /* CZWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZWebImageManager.h; sourceTree = "<group>"; };
+		EAF4B3271CFC92DB002CABE5 /* CZWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZWebImageManager.m; sourceTree = "<group>"; };
+		EAF4B3291CFC9351002CABE5 /* CZWebImageDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZWebImageDownloadOperation.h; sourceTree = "<group>"; };
+		EAF4B32A1CFC9351002CABE5 /* CZWebImageDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZWebImageDownloadOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +183,7 @@
 		EAA7C8F21CF9FFFC006D8B5D /* 13-异步加载图像 */ = {
 			isa = PBXGroup;
 			children = (
+				EAF4B3251CFC9288002CABE5 /* CZWebImage */,
 				EAA7C90A1CFA00C3006D8B5D /* ThirdLib */,
 				EAA7C93B1CFA00C3006D8B5D /* Tools */,
 				EAA7C8F61CF9FFFC006D8B5D /* AppDelegate.h */,
@@ -342,6 +349,17 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		EAF4B3251CFC9288002CABE5 /* CZWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				EAF4B3261CFC92DB002CABE5 /* CZWebImageManager.h */,
+				EAF4B3271CFC92DB002CABE5 /* CZWebImageManager.m */,
+				EAF4B3291CFC9351002CABE5 /* CZWebImageDownloadOperation.h */,
+				EAF4B32A1CFC9351002CABE5 /* CZWebImageDownloadOperation.m */,
+			);
+			path = CZWebImage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -430,6 +448,7 @@
 				EAA7C9671CFA00C3006D8B5D /* SDWebImagePrefetcher.m in Sources */,
 				EAA7C9791CFA00C3006D8B5D /* CZBaseControl.m in Sources */,
 				EAA7C96E1CFA00C3006D8B5D /* UIView+WebCacheOperation.m in Sources */,
+				EAF4B3281CFC92DB002CABE5 /* CZWebImageManager.m in Sources */,
 				EAA7C96A1CFA00C3006D8B5D /* UIImage+MultiFormat.m in Sources */,
 				EAA7C95A1CFA00C3006D8B5D /* AFNetworkReachabilityManager.m in Sources */,
 				EAA7C9711CFA00C3006D8B5D /* NSAttributedString+CZAdditon.m in Sources */,
@@ -454,6 +473,7 @@
 				EAA7C96B1CFA00C3006D8B5D /* UIImage+WebP.m in Sources */,
 				EAA7C9721CFA00C3006D8B5D /* NSObject+CZAddition.m in Sources */,
 				EAA7C9771CFA00C3006D8B5D /* UIView+CZAddition.m in Sources */,
+				EAF4B32B1CFC9351002CABE5 /* CZWebImageDownloadOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
