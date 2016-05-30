@@ -16,3 +16,4 @@
 #import "NSArray+CZAddition.h"
 #import "NSObject+CZAddition.h"
 #import "NSAttributedString+CZAdditon.h"
+#import "NSString+Hash.h"

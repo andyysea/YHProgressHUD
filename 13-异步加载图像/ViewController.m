@@ -11,6 +11,9 @@
 #import "CZAppInfo.h"
 #import "CZAppCell.h"
 #import "UIImageView+WebCache.h"
+#import "CZAdditions.h"
+
+
 
 static NSString *cellId = @"cellId";
 
@@ -169,6 +172,20 @@ static NSString *cellId = @"cellId";
         return cell;
     }
     
+    // 3》取出沙盒缓存的图像
+    cacheImage = [UIImage imageWithContentsOfFile:[self cachePathWithURLString:model.icon]];
+    
+    if (cacheImage != nil) {
+        NSLog(@"换回沙盒缓存");
+        // 设置图像
+        cell.iconView.image = cacheImage;
+        // 设置内存缓存
+        [_imageCache setObject:cacheImage forKey:model.icon];
+        
+        return cell;
+    }
+    
+    
     //问题 图像没有下载完成的时候不停的滚动表格，会将同一个操作重复添加到队列中，导致重复下载，操作的线程数量也增加
     
     // 为了设置cell 复用 cell 的图像更新慢的问题， 使用占位符
@@ -177,7 +194,7 @@ static NSString *cellId = @"cellId";
     
     // sdwebimage 异步设置图像
     NSURL *url = [NSURL URLWithString:model.icon];
-    
+
     
     // 在创建操作之前，进行判断操作是否存在
     if (_operationCache[model.icon] != nil) {
@@ -201,6 +218,9 @@ static NSString *cellId = @"cellId";
             
             // 这里加载完毕图像之后，将图像保存到图像缓冲池中
             [_imageCache setObject:image forKey:model.icon];
+            
+            // 将图像数据保存到沙盒
+            [data writeToFile:[self cachePathWithURLString:model.icon] atomically:YES];
         }
         
         
@@ -223,8 +243,22 @@ static NSString *cellId = @"cellId";
     return cell;
 }
 
-
-
+/**
+ *  根据url 生成缓存的全路劲
+ */
+- (NSString *)cachePathWithURLString:(NSString *)urlString {
+    
+    //1》获取缓存目录
+    NSString *cacheDir = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+    
+    // 2》生成 MD5 的文件名
+    NSString *fileName = [urlString cz_md5String];
+    
+    //3》拼接泉路劲，最后返回
+    NSString *filePath = [cacheDir stringByAppendingPathComponent:fileName];
+    
+    return filePath;
+}
 
 
 

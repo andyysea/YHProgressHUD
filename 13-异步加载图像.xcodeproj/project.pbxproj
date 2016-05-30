@@ -51,6 +51,7 @@
 		EAA7C97E1CFA0663006D8B5D /* CZAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA7C97D1CFA0663006D8B5D /* CZAppInfo.m */; };
 		EAA7C9831CFA07C2006D8B5D /* CZAppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA7C9811CFA07C2006D8B5D /* CZAppCell.m */; };
 		EAA7C9841CFA07C2006D8B5D /* CZAppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAA7C9821CFA07C2006D8B5D /* CZAppCell.xib */; };
+		EAF4B31A1CFBF3CD002CABE5 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF4B3191CFBF3CD002CABE5 /* NSString+Hash.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +143,8 @@
 		EAA7C9801CFA07C2006D8B5D /* CZAppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZAppCell.h; sourceTree = "<group>"; };
 		EAA7C9811CFA07C2006D8B5D /* CZAppCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZAppCell.m; sourceTree = "<group>"; };
 		EAA7C9821CFA07C2006D8B5D /* CZAppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CZAppCell.xib; sourceTree = "<group>"; };
+		EAF4B3181CFBF3CD002CABE5 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		EAF4B3191CFBF3CD002CABE5 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +284,8 @@
 			isa = PBXGroup;
 			children = (
 				EAA7C93D1CFA00C3006D8B5D /* CZAdditions.h */,
+				EAF4B3181CFBF3CD002CABE5 /* NSString+Hash.h */,
+				EAF4B3191CFBF3CD002CABE5 /* NSString+Hash.m */,
 				EAA7C93E1CFA00C3006D8B5D /* NSArray+CZAddition.h */,
 				EAA7C93F1CFA00C3006D8B5D /* NSArray+CZAddition.m */,
 				EAA7C9401CFA00C3006D8B5D /* NSArray+Log.h */,
@@ -442,6 +447,7 @@
 				EAA7C97A1CFA00C3006D8B5D /* CZBaseView.m in Sources */,
 				EAA7C95C1CFA00C3006D8B5D /* AFURLRequestSerialization.m in Sources */,
 				EAA7C95D1CFA00C3006D8B5D /* AFURLResponseSerialization.m in Sources */,
+				EAF4B31A1CFBF3CD002CABE5 /* NSString+Hash.m in Sources */,
 				EAA7C9591CFA00C3006D8B5D /* AFHTTPSessionManager.m in Sources */,
 				EAA7C9691CFA00C3006D8B5D /* UIImage+GIF.m in Sources */,
 				EAA7C9601CFA00C3006D8B5D /* NSData+ImageContentType.m in Sources */,
@@ -596,6 +602,7 @@
 				EAA7C9091CF9FFFC006D8B5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
