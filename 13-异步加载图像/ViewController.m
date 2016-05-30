@@ -141,14 +141,14 @@ static NSString *cellId = @"cellId";
     
     // 判断模型数据里面有没有图像，如果有，就设置图像，没有就走下面的下载图像的方法，
     // ==> 下载得到的图像要在合适的位子再保存在数组中，就是使用数组属性记录
-    if (model.image != nil) {
-        
-        NSLog(@"返回模型缓存");
-        
-        cell.iconView.image = model.image;
-        
-        return cell;  // 如果数组中有数据，那么就可以直接使用，并且返回
-    }
+//    if (model.image != nil) {
+//        
+//        NSLog(@"返回模型缓存");
+//        
+//        cell.iconView.image = model.image;
+//        
+//        return cell;  // 如果数组中有数据，那么就可以直接使用，并且返回
+//    }
     
     
     // 为了设置cell 复用 cell 的图像更新慢的问题， 使用占位符
@@ -168,7 +168,7 @@ static NSString *cellId = @"cellId";
         UIImage *image = [UIImage imageWithData:data];
         
         // 这里加载完成图像之后，使用模型属性记录，这样就可以保存在数组，下次首先从数组中判断是否有图像
-        model.image = image;
+//        model.image = image;
         
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{

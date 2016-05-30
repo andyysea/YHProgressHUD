@@ -15,6 +15,6 @@
 @property (nonatomic, copy) NSString *icon;
 
 // 图像，模型属性保存数据，不好释放根视图
-@property (nonatomic, strong) UIImage *image;
+//@property (nonatomic, strong) UIImage *image;
 
 @end
