@@ -22,6 +22,9 @@ static NSString *cellId = @"cellId";
 @property (nonatomic, strong) NSArray <CZAppInfo *> *appList;
 // 下载队列
 @property (nonatomic, strong) NSOperationQueue *downloadQueue;
+// 图像缓冲池
+@property (nonatomic, strong) NSMutableDictionary *imageCache;
+
 @end
 
 /**
@@ -48,6 +51,8 @@ static NSString *cellId = @"cellId";
     
     // 实例化队列
     _downloadQueue = [[NSOperationQueue alloc] init];
+    // 实例化图像缓冲池
+    _imageCache = [NSMutableDictionary dictionary];
     
     // 异步执行加载数据，方法执行完成之后，不会立即得到结果
     [self loadData];
@@ -150,6 +155,16 @@ static NSString *cellId = @"cellId";
 //        return cell;  // 如果数组中有数据，那么就可以直接使用，并且返回
 //    }
     
+    //1》 重图像缓冲池中取出图像
+    UIImage *cacheImage = _imageCache[model.icon];
+    //2》 判断取出的图像是否为空
+    if (cacheImage != nil) {
+        NSLog(@"返回图像缓冲池中的图像");
+        cell.iconView.image = cacheImage;
+        return cell;
+    }
+    
+    
     
     // 为了设置cell 复用 cell 的图像更新慢的问题， 使用占位符
     UIImage *image = [UIImage imageNamed:@"user_default"];
@@ -170,6 +185,8 @@ static NSString *cellId = @"cellId";
         // 这里加载完成图像之后，使用模型属性记录，这样就可以保存在数组，下次首先从数组中判断是否有图像
 //        model.image = image;
         
+        // 这里加载完毕图像之后，将图像保存到图像缓冲池中
+        [_imageCache setObject:image forKey:model.icon];
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
            
@@ -193,10 +210,11 @@ static NSString *cellId = @"cellId";
 
 //    1> 释放 根视图 6.0 iOS 6.0 开始默认不在释放视图
 //    2> 释放资源
-    
-    // 如果内存警告，取消没有下载完成的操作,没有执行的操作将从队列中删除
+    //a) 如果内存警告，取消没有下载完成的操作,没有执行的操作将从队列中删除
     [_downloadQueue cancelAllOperations];
     
+    //b) 释放图像缓冲池
+    [_imageCache removeAllObjects];
 }
 
 @end
