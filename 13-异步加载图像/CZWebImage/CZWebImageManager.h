@@ -12,5 +12,7 @@
  */
 @interface CZWebImageManager : NSObject
 
+// 全局访问点，单例
++ (instancetype)sharedManger;
 
 @end

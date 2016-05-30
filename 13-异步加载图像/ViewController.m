@@ -12,7 +12,7 @@
 #import "CZAppCell.h"
 #import "UIImageView+WebCache.h"
 #import "CZAdditions.h"
-
+#import "CZWebImageManager.h"
 
 
 static NSString *cellId = @"cellId";
