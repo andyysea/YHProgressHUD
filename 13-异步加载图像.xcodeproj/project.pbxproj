@@ -48,6 +48,9 @@
 		EAA7C9791CFA00C3006D8B5D /* CZBaseControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA7C9541CFA00C3006D8B5D /* CZBaseControl.m */; };
 		EAA7C97A1CFA00C3006D8B5D /* CZBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA7C9561CFA00C3006D8B5D /* CZBaseView.m */; };
 		EAA7C97B1CFA00C3006D8B5D /* CZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA7C9581CFA00C3006D8B5D /* CZBaseViewController.m */; };
+		EAA7C97E1CFA0663006D8B5D /* CZAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA7C97D1CFA0663006D8B5D /* CZAppInfo.m */; };
+		EAA7C9831CFA07C2006D8B5D /* CZAppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA7C9811CFA07C2006D8B5D /* CZAppCell.m */; };
+		EAA7C9841CFA07C2006D8B5D /* CZAppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAA7C9821CFA07C2006D8B5D /* CZAppCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +137,11 @@
 		EAA7C9561CFA00C3006D8B5D /* CZBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZBaseView.m; sourceTree = "<group>"; };
 		EAA7C9571CFA00C3006D8B5D /* CZBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZBaseViewController.h; sourceTree = "<group>"; };
 		EAA7C9581CFA00C3006D8B5D /* CZBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZBaseViewController.m; sourceTree = "<group>"; };
+		EAA7C97C1CFA0663006D8B5D /* CZAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZAppInfo.h; sourceTree = "<group>"; };
+		EAA7C97D1CFA0663006D8B5D /* CZAppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZAppInfo.m; sourceTree = "<group>"; };
+		EAA7C9801CFA07C2006D8B5D /* CZAppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZAppCell.h; sourceTree = "<group>"; };
+		EAA7C9811CFA07C2006D8B5D /* CZAppCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZAppCell.m; sourceTree = "<group>"; };
+		EAA7C9821CFA07C2006D8B5D /* CZAppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CZAppCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +180,8 @@
 				EAA7C8F71CF9FFFC006D8B5D /* AppDelegate.m */,
 				EAA7C8F91CF9FFFC006D8B5D /* ViewController.h */,
 				EAA7C8FA1CF9FFFC006D8B5D /* ViewController.m */,
+				EAA7C9851CFA07CE006D8B5D /* View */,
+				EAA7C97F1CFA0798006D8B5D /* Model */,
 				EAA7C8FC1CF9FFFC006D8B5D /* Main.storyboard */,
 				EAA7C8FF1CF9FFFC006D8B5D /* Assets.xcassets */,
 				EAA7C9011CF9FFFC006D8B5D /* LaunchScreen.storyboard */,
@@ -308,6 +318,25 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		EAA7C97F1CFA0798006D8B5D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EAA7C97C1CFA0663006D8B5D /* CZAppInfo.h */,
+				EAA7C97D1CFA0663006D8B5D /* CZAppInfo.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EAA7C9851CFA07CE006D8B5D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EAA7C9801CFA07C2006D8B5D /* CZAppCell.h */,
+				EAA7C9811CFA07C2006D8B5D /* CZAppCell.m */,
+				EAA7C9821CFA07C2006D8B5D /* CZAppCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -365,6 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAA7C9841CFA07C2006D8B5D /* CZAppCell.xib in Resources */,
 				EAA7C9031CF9FFFC006D8B5D /* LaunchScreen.storyboard in Resources */,
 				EAA7C9001CF9FFFC006D8B5D /* Assets.xcassets in Resources */,
 				EAA7C8FE1CF9FFFC006D8B5D /* Main.storyboard in Resources */,
@@ -398,9 +428,11 @@
 				EAA7C96A1CFA00C3006D8B5D /* UIImage+MultiFormat.m in Sources */,
 				EAA7C95A1CFA00C3006D8B5D /* AFNetworkReachabilityManager.m in Sources */,
 				EAA7C9711CFA00C3006D8B5D /* NSAttributedString+CZAdditon.m in Sources */,
+				EAA7C9831CFA07C2006D8B5D /* CZAppCell.m in Sources */,
 				EAA7C96F1CFA00C3006D8B5D /* NSArray+CZAddition.m in Sources */,
 				EAA7C8F51CF9FFFC006D8B5D /* main.m in Sources */,
 				EAA7C9681CFA00C3006D8B5D /* UIButton+WebCache.m in Sources */,
+				EAA7C97E1CFA0663006D8B5D /* CZAppInfo.m in Sources */,
 				EAA7C95B1CFA00C3006D8B5D /* AFSecurityPolicy.m in Sources */,
 				EAA7C9741CFA00C3006D8B5D /* UIColor+CZAddition.m in Sources */,
 				EAA7C9611CFA00C3006D8B5D /* SDImageCache.m in Sources */,
