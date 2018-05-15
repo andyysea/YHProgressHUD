@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA244C3920AA7EAB00D1B297 /* animation_three_01.png in Resources */ = {isa = PBXBuildFile; fileRef = EA244C3320AA7EAA00D1B297 /* animation_three_01.png */; };
+		EA244C3A20AA7EAB00D1B297 /* animation_three_03.png in Resources */ = {isa = PBXBuildFile; fileRef = EA244C3420AA7EAA00D1B297 /* animation_three_03.png */; };
+		EA244C3B20AA7EAB00D1B297 /* animation_three_02.png in Resources */ = {isa = PBXBuildFile; fileRef = EA244C3520AA7EAA00D1B297 /* animation_three_02.png */; };
+		EA244C3C20AA7EAB00D1B297 /* animation_three_06.png in Resources */ = {isa = PBXBuildFile; fileRef = EA244C3620AA7EAA00D1B297 /* animation_three_06.png */; };
+		EA244C3D20AA7EAB00D1B297 /* animation_three_05.png in Resources */ = {isa = PBXBuildFile; fileRef = EA244C3720AA7EAA00D1B297 /* animation_three_05.png */; };
+		EA244C3E20AA7EAB00D1B297 /* animation_three_04.png in Resources */ = {isa = PBXBuildFile; fileRef = EA244C3820AA7EAA00D1B297 /* animation_three_04.png */; };
 		EA9225E2201E1C5A00AB1974 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9225E1201E1C5A00AB1974 /* AppDelegate.m */; };
 		EA9225E5201E1C5A00AB1974 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9225E4201E1C5A00AB1974 /* ViewController.m */; };
 		EA9225E8201E1C5A00AB1974 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA9225E6201E1C5A00AB1974 /* Main.storyboard */; };
@@ -17,6 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA244C3320AA7EAA00D1B297 /* animation_three_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animation_three_01.png; sourceTree = "<group>"; };
+		EA244C3420AA7EAA00D1B297 /* animation_three_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animation_three_03.png; sourceTree = "<group>"; };
+		EA244C3520AA7EAA00D1B297 /* animation_three_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animation_three_02.png; sourceTree = "<group>"; };
+		EA244C3620AA7EAA00D1B297 /* animation_three_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animation_three_06.png; sourceTree = "<group>"; };
+		EA244C3720AA7EAA00D1B297 /* animation_three_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animation_three_05.png; sourceTree = "<group>"; };
+		EA244C3820AA7EAA00D1B297 /* animation_three_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animation_three_04.png; sourceTree = "<group>"; };
 		EA9225DD201E1C5A00AB1974 /* YHProgressHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHProgressHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA9225E0201E1C5A00AB1974 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EA9225E1201E1C5A00AB1974 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -42,6 +54,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA244C3220AA7EAA00D1B297 /* AnimationPicture */ = {
+			isa = PBXGroup;
+			children = (
+				EA244C3320AA7EAA00D1B297 /* animation_three_01.png */,
+				EA244C3420AA7EAA00D1B297 /* animation_three_03.png */,
+				EA244C3520AA7EAA00D1B297 /* animation_three_02.png */,
+				EA244C3620AA7EAA00D1B297 /* animation_three_06.png */,
+				EA244C3720AA7EAA00D1B297 /* animation_three_05.png */,
+				EA244C3820AA7EAA00D1B297 /* animation_three_04.png */,
+			);
+			path = AnimationPicture;
+			sourceTree = "<group>";
+		};
 		EA9225D4201E1C5A00AB1974 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +103,7 @@
 		EA9225F6201E1C9C00AB1974 /* YHProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				EA244C3220AA7EAA00D1B297 /* AnimationPicture */,
 				EA9225FA201E236D00AB1974 /* YHProgressHUD.h */,
 				EA9225FB201E236D00AB1974 /* YHProgressHUD.m */,
 			);
@@ -142,9 +168,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA244C3920AA7EAB00D1B297 /* animation_three_01.png in Resources */,
 				EA9225ED201E1C5A00AB1974 /* LaunchScreen.storyboard in Resources */,
 				EA9225EA201E1C5A00AB1974 /* Assets.xcassets in Resources */,
+				EA244C3A20AA7EAB00D1B297 /* animation_three_03.png in Resources */,
+				EA244C3D20AA7EAB00D1B297 /* animation_three_05.png in Resources */,
 				EA9225E8201E1C5A00AB1974 /* Main.storyboard in Resources */,
+				EA244C3E20AA7EAB00D1B297 /* animation_three_04.png in Resources */,
+				EA244C3B20AA7EAB00D1B297 /* animation_three_02.png in Resources */,
+				EA244C3C20AA7EAB00D1B297 /* animation_three_06.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,10 +326,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = YHProgressHUD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yyh.YHProgressHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,10 +340,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = YHProgressHUD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yyh.YHProgressHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
